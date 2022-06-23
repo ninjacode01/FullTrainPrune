@@ -3,6 +3,7 @@ import json
 import os
 from Experiments import singleshot
 from Experiments import multishot
+from Experiments import fulltrainprune
 from Experiments.theory import unit_conservation
 from Experiments.theory import layer_conservation
 from Experiments.theory import imp_conservation
@@ -143,4 +144,8 @@ if __name__ == '__main__':
         imp_conservation.run(args)
     if args.experiment == 'schedule-conservation':
         schedule_conservation.run(args)
+    if args.experiment == 'fulltrainprune':
+        fulltrainprune.run(args)
+     
+     
 
