@@ -17,7 +17,7 @@ def run(args):
     torch.manual_seed(args.seed)
     device = load.device(args.gpu)
 
-    ## Data ##
+    ## Data Loading ##
     print('Loading {} dataset.'.format(args.dataset))
     input_shape, num_classes = load.dimension(args.dataset) 
     prune_loader = load.dataloader(args.dataset, args.prune_batch_size, True, args.workers, args.prune_dataset_ratio * num_classes)
@@ -39,6 +39,10 @@ def run(args):
     torch.save(model.state_dict(),"{}/model.pt".format(args.result_dir))
     torch.save(optimizer.state_dict(),"{}/optimizer.pt".format(args.result_dir))
     torch.save(scheduler.state_dict(),"{}/scheduler.pt".format(args.result_dir))
+    
+    ## Full Train ##
+    traineval_loop(model, loss, optimizer, scheduler, train_loader, 
+                                test_loader, device, args.fullepochs, args.verbose)
 
     ## Train-Prune Loop ##
     for compression in args.compression_list:
