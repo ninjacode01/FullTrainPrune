@@ -41,8 +41,10 @@ def run(args):
     torch.save(scheduler.state_dict(),"{}/scheduler.pt".format(args.result_dir))
     
     ## Full Train ##
-    traineval_loop(model, loss, optimizer, scheduler, train_loader, 
+    trained_weights= train_eval_loop(model, loss, optimizer, scheduler, train_loader, 
                                 test_loader, device, args.fullepochs, args.verbose)
+    torch.save(model.state_dict(),"{}/model_trained.pt".format(args.result_dir))
+    trained_weights.to_pickle("{}/full-train.pkl".format(args.result_dir))
 
     ## Train-Prune Loop ##
     for compression in args.compression_list:
@@ -82,6 +84,14 @@ def run(args):
                                            pruner.scores,
                                            metrics.flop(model, input_shape, device),
                                            lambda p: generator.prunable(p, args.prune_batchnorm, args.prune_residual))
+            
+            #Re-initializing to the trained weights
+            trained_dict = torch.load("{}/model_trained.pt".format(args.result_dir), map_location=device)
+            trained_weights = dict(filter(lambda v: (v[0].endswith(('.weight', '.bias'))), trained_dict.items()))
+            model_dict = model.state_dict()
+            model_dict.update(original_weights)
+            model.load_state_dict(model_dict)
+            
             # Train Model
             post_result = train_eval_loop(model, loss, optimizer, scheduler, train_loader, 
                                           test_loader, device, args.post_epochs, args.verbose)
