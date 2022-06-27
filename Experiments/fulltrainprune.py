@@ -47,9 +47,9 @@ def run(args):
     trained_weights.to_pickle("{}/full-train.pkl".format(args.result_dir))
 
     ## Train-Prune Loop ##
-    for compression in args.compression_list:
+    for sp in args.sparsity_list:
         for level in args.level_list:
-            print('{} compression ratio, {} train-prune levels'.format(compression, level))
+            print('{} sparsity level, {} train-prune levels'.format(sp, level))
             
             # Reset Model, Optimizer, and Scheduler
             model.load_state_dict(torch.load("{}/model.pt".format(args.result_dir), map_location=device))
@@ -64,7 +64,7 @@ def run(args):
 
                 # Prune Model
                 pruner = load.pruner(args.pruner)(generator.masked_parameters(model, args.prune_bias, args.prune_batchnorm, args.prune_residual))
-                sparsity = (10**(-float(compression)))**((l + 1) / level)
+                sparsity = sp**((l + 1) / level)
                 prune_loop(model, loss, pruner, prune_loader, device, sparsity,
                            args.compression_schedule, args.mask_scope, args.prune_epochs, args.reinitialize, args.prune_train_mode, args.shuffle, args.invert)
 
