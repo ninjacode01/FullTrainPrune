@@ -93,6 +93,16 @@ if __name__ == '__main__':
                         help='list of compression ratio exponents for singleshot/multishot (default: [])')
     pruning_args.add_argument('--level-list', type=int, nargs='*', default=[],
                         help='list of number of prune-train cycles (levels) for multishot (default: [])')
+    
+    ### NEW ARGUMENTS ###
+    pruning_args.add_argument('--sparsity-percent', type= float, default = 80.0, 
+                              help= 'final sparsity level we intend to achieve: (default:80%)')
+    
+   ########################################################################################
+    
+    
+    
+    
     ## Experiment Hyperparameters ##
     parser.add_argument('--experiment', type=str, default='singleshot', 
                         choices=['singleshot','multishot','unit-conservation',
