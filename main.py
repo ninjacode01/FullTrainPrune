@@ -104,8 +104,8 @@ if __name__ == '__main__':
     
     
     ## Experiment Hyperparameters ##
-    parser.add_argument('--experiment', type=str, default='singleshot', 
-                        choices=['singleshot','multishot','unit-conservation',
+    parser.add_argument('--experiment', type=str, default='fulltrainprune', 
+                        choices=['singleshot','multishot','unit-conservation', 'fulltrainprune',
                         'layer-conservation','imp-conservation','schedule-conservation'],
                         help='experiment name (default: example)')
     parser.add_argument('--expid', type=str, default='',
