@@ -4,6 +4,7 @@ from torchvision import datasets, transforms
 import torch.optim as optim
 from Models import mlp
 from Models import lottery_vgg
+from Models import cifar_resnet
 from Models import lottery_resnet
 from Models import tinyimagenet_vgg
 from Models import tinyimagenet_resnet
@@ -94,6 +95,7 @@ def model(model_architecture, model_class):
     default_models = {
         'fc' : mlp.fc,
         'conv' : mlp.conv,
+        'resnet18' : cifar_resnet.resnet18,
     }
     lottery_models = {
         'vgg11' : lottery_vgg.vgg11,
