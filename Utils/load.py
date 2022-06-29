@@ -95,7 +95,7 @@ def model(model_architecture, model_class):
     default_models = {
         'fc' : mlp.fc,
         'conv' : mlp.conv,
-        'resnet18' : cifar_resnet.resnet18,
+        'resnet18' : cifar_resnet.ResNet18,
     }
     lottery_models = {
         'vgg11' : lottery_vgg.vgg11,
