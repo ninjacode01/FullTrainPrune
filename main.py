@@ -14,7 +14,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Network Compression')
     # Training Hyperparameters
     training_args = parser.add_argument_group('training')
-    training_args.add_argument('--dataset', type=str, default='mnist',
+    training_args.add_argument('--dataset', type=str, default='cifar10',
                         choices=['mnist','cifar10','cifar100','tiny-imagenet','imagenet'],
                         help='dataset (default: mnist)')
     training_args.add_argument('--model', type=str, default='fc', choices=['fc','conv',
@@ -44,8 +44,8 @@ if __name__ == '__main__':
     #####################################
     training_args.add_argument('--pre-epochs', type=int, default=0,
                         help='number of epochs to train before pruning (default: 0)')
-    training_args.add_argument('--post-epochs', type=int, default=10,
-                        help='number of epochs to train after pruning (default: 10)')
+    training_args.add_argument('--post-epochs', type=int, default=160,
+                        help='number of epochs to train after pruning (default: 160)')
     training_args.add_argument('--lr', type=float, default=0.001,
                         help='learning rate (default: 0.001)')
     training_args.add_argument('--lr-drops', type=int, nargs='*', default=[],
@@ -56,7 +56,7 @@ if __name__ == '__main__':
                         help='weight decay (default: 0.0)')
     # Pruning Hyperparameters
     pruning_args = parser.add_argument_group('pruning')
-    pruning_args.add_argument('--pruner', type=str, default='rand', 
+    pruning_args.add_argument('--pruner', type=str, default='synflow', 
                         choices=['rand','mag','snip','grasp','synflow'],
                         help='prune strategy (default: rand)')
     pruning_args.add_argument('--compression', type=float, default=0.0,
