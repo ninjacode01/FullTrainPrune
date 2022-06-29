@@ -17,7 +17,7 @@ if __name__ == '__main__':
     training_args.add_argument('--dataset', type=str, default='cifar10',
                         choices=['mnist','cifar10','cifar100','tiny-imagenet','imagenet'],
                         help='dataset (default: mnist)')
-    training_args.add_argument('--model', type=str, default='fc', choices=['fc','conv',
+    training_args.add_argument('--model', type=str, default='resnet18', choices=['fc','conv',
                         'vgg11','vgg11-bn','vgg13','vgg13-bn','vgg16','vgg16-bn','vgg19','vgg19-bn',
                         'resnet18','resnet20','resnet32','resnet34','resnet44','resnet50',
                         'resnet56','resnet101','resnet110','resnet110','resnet152','resnet1202',
@@ -38,7 +38,7 @@ if __name__ == '__main__':
                         help='input batch size for testing (default: 256)')
     ### NEW ARGUMENTS ####
     training_args.add_argument('--fullepochs', type=int, default=5,
-                        help='number of epochs to train before pruning (default: 10)')
+                        help='number of epochs to train before pruning (default: 5)')
     
 
     #####################################
@@ -91,8 +91,8 @@ if __name__ == '__main__':
                         help='list of prune epochs for singleshot (default: [])')
     pruning_args.add_argument('--compression-list', type=float, nargs='*', default=[],
                         help='list of compression ratio exponents for singleshot/multishot (default: [])')
-    pruning_args.add_argument('--level-list', type=int, nargs='*', default=[],
-                        help='list of number of prune-train cycles (levels) for multishot (default: [])')
+    pruning_args.add_argument('--level-list', type=int, nargs='*', default=[25],
+                        help='list of number of prune-train cycles (levels) for multishot (default: [25])')
     
     ### NEW ARGUMENTS ###
     pruning_args.add_argument('--sparsity_list', type= float, default = [90], 
