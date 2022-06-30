@@ -18,7 +18,8 @@ class Pruner:
         #     score[mask == 0.0] = -np.inf
 
         # Threshold scores
-        print(global_scores)
+        for v in self.scores.values():
+            print(v)
         
         
         
