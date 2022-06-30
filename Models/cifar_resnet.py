@@ -104,7 +104,7 @@ class ResNet(nn.Module):
         return out
 
 
-def ResNet18():
+def ResNet18(input_shape, num_classes,dense_classifier,pretrained):
     return ResNet(BasicBlock, [2, 2, 2, 2])
 
 
