@@ -89,7 +89,7 @@ def run(args):
             trained_dict = torch.load("{}/model_trained.pt".format(args.result_dir), map_location=device)
             trained_weights = dict(filter(lambda v: (v[0].endswith(('.weight', '.bias'))), trained_dict.items()))
             model_dict = model.state_dict()
-            model_dict.update(original_weights)
+            model_dict.update(trained_weights)
             model.load_state_dict(model_dict)
             
             # Train Model
