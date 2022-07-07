@@ -42,10 +42,10 @@ if __name__ == '__main__':
     
 
     #####################################
-    training_args.add_argument('--pre-epochs', type=int, default=0,
-                        help='number of epochs to train before pruning (default: 0)')
-    training_args.add_argument('--post-epochs', type=int, default=160,
-                        help='number of epochs to train after pruning (default: 160)')
+    training_args.add_argument('--pre-epochs', type=int, default=2,
+                        help='number of epochs to train before pruning (default: 2)')
+    training_args.add_argument('--post-epochs', type=int, default=30,
+                        help='number of epochs to train after pruning (default: 30)')
     training_args.add_argument('--lr', type=float, default=0.001,
                         help='learning rate (default: 0.001)')
     training_args.add_argument('--lr-drops', type=int, nargs='*', default=[],
@@ -90,9 +90,9 @@ if __name__ == '__main__':
     pruning_args.add_argument('--prune-epoch-list', type=int, nargs='*', default=[],
                         help='list of prune epochs for singleshot (default: [])')
     pruning_args.add_argument('--compression-list', type=float, nargs='*', default=[],
-                        help='list of compression ratio exponents for singleshot/multishot (default: [])')
-    pruning_args.add_argument('--level-list', type=int, nargs='*', default=[25],
-                        help='list of number of prune-train cycles (levels) for multishot (default: [25])')
+                        help='list of compression ratio exponents for singleshot/multishot (default: [1.0])')
+    pruning_args.add_argument('--level-list', type=int, nargs='*', default=[12],
+                        help='list of number of prune-train cycles (levels) for multishot (default: [12])')
     
     ### NEW ARGUMENTS ###
     pruning_args.add_argument('--sparsity_list', type= float, default = [90], 
