@@ -89,7 +89,7 @@ if __name__ == '__main__':
                         help='list of pruning strategies for singleshot (default: [])')
     pruning_args.add_argument('--prune-epoch-list', type=int, nargs='*', default=[],
                         help='list of prune epochs for singleshot (default: [])')
-    pruning_args.add_argument('--compression-list', type=float, nargs='*', default=[],
+    pruning_args.add_argument('--compression-list', type=float, nargs='*', default=[1.0],
                         help='list of compression ratio exponents for singleshot/multishot (default: [1.0])')
     pruning_args.add_argument('--level-list', type=int, nargs='*', default=[12],
                         help='list of number of prune-train cycles (levels) for multishot (default: [12])')
