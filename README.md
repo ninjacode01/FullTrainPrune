@@ -1,4 +1,4 @@
-# Synaptic Flow
+# Full Train Prune
 
 
 ## Getting Started
