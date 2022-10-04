@@ -42,10 +42,10 @@ if __name__ == '__main__':
     
 
     #####################################
-    training_args.add_argument('--pre-epochs', type=int, default=2,
-                        help='number of epochs to train before pruning (default: 2)')
-    training_args.add_argument('--post-epochs', type=int, default=30,
-                        help='number of epochs to train after pruning (default: 30)')
+    training_args.add_argument('--pre-epochs', type=int, default=20,
+                        help='number of epochs to train before pruning (default: 20)')
+    training_args.add_argument('--post-epochs', type=int, default=160,
+                        help='number of epochs to train after pruning (default: 160)')
     training_args.add_argument('--lr', type=float, default=0.001,
                         help='learning rate (default: 0.001)')
     training_args.add_argument('--lr-drops', type=int, nargs='*', default=[],
