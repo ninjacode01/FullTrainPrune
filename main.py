@@ -37,8 +37,8 @@ if __name__ == '__main__':
     training_args.add_argument('--test-batch-size', type=int, default=256,
                         help='input batch size for testing (default: 256)')
     ### NEW ARGUMENTS ####
-    training_args.add_argument('--fullepochs', type=int, default=5,
-                        help='number of epochs to train before pruning (default: 5)')
+    training_args.add_argument('--fullepochs', type=int, default=160,
+                        help='number of epochs to train before pruning (default: 160)')
     
 
     #####################################
