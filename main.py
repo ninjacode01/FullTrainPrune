@@ -75,7 +75,7 @@ if __name__ == '__main__':
                         help='whether to prune bias parameters (default: False)')
     pruning_args.add_argument('--prune-batchnorm', type=bool, default=False,
                         help='whether to prune batchnorm layers (default: False)')
-    pruning_args.add_argument('--prune-residual', type=bool, default=False,
+    pruning_args.add_argument('--prune-residual', type=bool, default=True,
                         help='whether to prune residual connections (default: False)')
     pruning_args.add_argument('--prune-train-mode', type=bool, default=False,
                         help='whether to prune in train mode (default: False)')
