@@ -59,7 +59,7 @@ if __name__ == '__main__':
     pruning_args.add_argument('--pruner', type=str, default='synflow', 
                         choices=['rand','mag','snip','grasp','synflow'],
                         help='prune strategy (default: rand)')
-    pruning_args.add_argument('--compression', type=float, default=0.0,
+    pruning_args.add_argument('--compression', type=float, default=1.0,
                         help='quotient of prunable non-zero prunable parameters before and after pruning (default: 1.0)')
     pruning_args.add_argument('--prune-epochs', type=int, default=1,
                         help='number of iterations for scoring (default: 1)')
@@ -112,11 +112,11 @@ if __name__ == '__main__':
                         help='name used to save results (default: "")')
     parser.add_argument('--result-dir', type=str, default='Results/data',
                         help='path to directory to save results (default: "Results/data")')
-    parser.add_argument('--gpu', type=int, default='1',
-                        help='number of GPU device to use (default: 1)')
+    parser.add_argument('--gpu', type=int, default='0',
+                        help='number of GPU device to use (default: 0)')
     parser.add_argument('--workers', type=int, default='4',
                         help='number of data loading workers (default: 4)')
-    parser.add_argument('--no-cuda', action='store_true',
+    parser.add_argument('--no-cuda', action='store_true', default = True,
                         help='disables CUDA training')
     parser.add_argument('--seed', type=int, default=1,
                         help='random seed (default: 1)')
