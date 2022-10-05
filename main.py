@@ -112,8 +112,8 @@ if __name__ == '__main__':
                         help='name used to save results (default: "")')
     parser.add_argument('--result-dir', type=str, default='Results/data',
                         help='path to directory to save results (default: "Results/data")')
-    parser.add_argument('--gpu', type=int, default='4',
-                        help='number of GPU device to use (default: 4)')
+    parser.add_argument('--gpu', type=int, default='1',
+                        help='number of GPU device to use (default: 1)')
     parser.add_argument('--workers', type=int, default='4',
                         help='number of data loading workers (default: 4)')
     parser.add_argument('--no-cuda', action='store_true',
