@@ -95,7 +95,7 @@ if __name__ == '__main__':
                         help='list of number of prune-train cycles (levels) for multishot (default: [12])')
     
     ### NEW ARGUMENTS ###
-    pruning_args.add_argument('--sparsity_list', type= float, default = [90], 
+    pruning_args.add_argument('--sparsity_list', type= float, default = [90.0], 
                               help= 'final sparsity level we intend to achieve: (default:90%)')
     
    ########################################################################################
