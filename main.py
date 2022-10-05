@@ -116,7 +116,7 @@ if __name__ == '__main__':
                         help='number of GPU device to use (default: 0)')
     parser.add_argument('--workers', type=int, default='4',
                         help='number of data loading workers (default: 4)')
-    parser.add_argument('--no-cuda', action='store_true', default = True,
+    parser.add_argument('--no-cuda', action='store_true', default = False,
                         help='disables CUDA training')
     parser.add_argument('--seed', type=int, default=1,
                         help='random seed (default: 1)')
