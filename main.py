@@ -120,7 +120,7 @@ if __name__ == '__main__':
                         help='disables CUDA training')
     parser.add_argument('--seed', type=int, default=1,
                         help='random seed (default: 1)')
-    parser.add_argument('--verbose', action='store_true', default= True,
+    parser.add_argument('--verbose', action='store_true', default= False,
                         help='print statistics during training and testing')
     args = parser.parse_args()
 
